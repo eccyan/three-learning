@@ -1,13 +1,13 @@
 {
-  "name": "threejs-app",
+  "name": "three-learning",
   "version": "1.0.0",
   "description": "",
   "main": "./src/index.js",
   "license": "MIT",
   "author": {
-    "name": "Matt DesLauriers",
-    "email": "dave.des@gmail.com",
-    "url": "https://github.com/mattdesl"
+    "name": "eccyan",
+    "email": "g00.eccyan@gmail.com",
+    "url": "https://github.com/eccyan"
   },
   "dependencies": {
     "clamp": "^1.0.1",
@@ -51,7 +51,7 @@
   "scripts": {
     "start": "NODE_ENV=development node tools/bundler.js",
     "bundle": "NODE_ENV=production node tools/bundler.js | uglifyjs -m -c warnings=false > app/bundle.js",
-    "deploy:upload": "surge -p app/ -d test-webgl.surge.sh",
+    "deploy:upload": "surge -p app/ -d three-learning.eccyan.surge.sh",
     "deploy": "npm run bundle && npm run deploy:upload"
   },
   "glslify": {
@@ -62,10 +62,10 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattdesl/threejs-app.git"
+    "url": "git://github.com/eccyan/three-learning"
   },
-  "homepage": "https://github.com/mattdesl/threejs-app",
+  "homepage": "https://github.com/eccyan/three-learning",
   "bugs": {
-    "url": "https://github.com/mattdesl/threejs-app/issues"
+    "url": "git://github.com/eccyan/three-learning/issues"
   }
 }
