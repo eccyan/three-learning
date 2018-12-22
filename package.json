@@ -10,7 +10,9 @@
     "url": "https://github.com/eccyan"
   },
   "dependencies": {
+    "acorn": "^6.0.4",
     "clamp": "^1.0.1",
+    "cryptiles": ">=4.1.2",
     "dat.gui": "^0.7.0",
     "defined": "^1.0.0",
     "glslify-hex": "^2.1.1",
