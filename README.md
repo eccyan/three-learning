@@ -30,4 +30,5 @@ For deploy to work, you will need to change the surge URL in `package.json` `"sc
 ## License
 
 This project forked from [mattdesl/threejs\-app](https://github.com/mattdesl)
+
 MIT, see [LICENSE.md](http://github.com/mattdesl/threejs-app/blob/master/LICENSE.md) for details.
