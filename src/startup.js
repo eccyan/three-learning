@@ -1,13 +1,8 @@
 import * as THREE from 'three';
-import Honeycomb from './webgl/scene/Honeycomb';
-import Camera from './webgl/scene/Camera';
-import Skybox from './webgl/scene/Skybox';
-import Sun from './webgl/scene/Sun';
-import Floor from './webgl/scene/Floor';
-import Sphere from './webgl/scene/Sphere';
 import { assets, webgl, gui } from './context';
+import Arena from './webgl/scene/Arena';
 
-module.exports = function () {
+export default () => {
   // Set background color
   const background = 'black';
   document.body.style.background = background;
@@ -29,11 +24,7 @@ module.exports = function () {
     // Add any "WebGL components" here...
     webgl.renderer.shadowMap.enabled = true;
 
-    webgl.scene.add(new Sun());
-    webgl.scene.add(new Floor());
-    webgl.scene.add(new Skybox());
-    webgl.scene.add(new Sphere());
-    webgl.scene.add(new Camera());
+    webgl.scene.add(new Arena());
 
     {
       const axes = new THREE.AxesHelper(10);
