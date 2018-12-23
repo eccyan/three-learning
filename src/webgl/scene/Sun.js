@@ -2,16 +2,24 @@ import { gui, webgl, assets, workbench } from '../../context';
 
 const update = (instance, items) => {
   instance.light.color.setStyle(items.color);
+  instance.light.position.set(items.x, items.y, items.z);
+  instance.light.shadow.mapSize.width = items.shadowMapSize;
+  instance.light.shadow.mapSize.height = items.shadowMapSize;
 };
 
 @workbench(update)
 export default class Sun extends THREE.Object3D {
-  settings = {
-    color: { value: 'rgb(255, 255, 255)', isColor: true },
-  }
 
   constructor () {
     super();
+
+    this.settings = {
+      color: { value: 'rgb(255, 255, 255)', isColor: true },
+      x: { value: -50 , isColor: false },
+      y: { value: 40 , isColor: false },
+      z: { value: 0 , isColor: false },
+      shadowMapSize: { value: 1024*2 },
+    }
 
     {
       const light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
@@ -39,16 +47,5 @@ export default class Sun extends THREE.Object3D {
 
       this.fog = new THREE.Fog(0x222233, 0, 20000);
     }
-
-    /*
-    if (gui) {
-      const folder = gui.addFolder(this.constructor.name);
-      const settings = {
-        color: this.light.color.getStyle(),
-      };
-      folder.addColor(settings, 'color').onChange(update);
-      folder.open();
-    }
-    */
   }
 }
