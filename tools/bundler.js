@@ -2,9 +2,6 @@ const budo = require('budo');
 const browserify = require('browserify');
 const path = require('path');
 
-// a utility that attaches shader reloading capabilities to budo
-const attachShaderReload = require('shader-reload/bin/budo-attach');
-
 // root source
 const entry = require.resolve('../');
 
@@ -20,12 +17,11 @@ module.exports.dev = function () {
   const app = budo.cli(args, {
     dir: path.resolve(__dirname, '../app'),
     serve: 'bundle.js',
-    live: false,
+    live: true,
     browserify: {
       transform: transforms.concat([ 'shader-reload/transform' ])
     }
   });
-  if (app) attachShaderReload(app);
   return app;
 };
 

@@ -1,7 +1,7 @@
-const { gui, webgl, assets } = require('../../context');
+import { gui, webgl, assets } from '../../context';
 
-const LiveShaderMaterial = require('../materials/LiveShaderMaterial');
-const honeyShader = require('../shaders/honey.shader');
+import LiveShaderMaterial from '../materials/LiveShaderMaterial';
+import honeyShader from '../shaders/honey.shader';
 
 // tell the preloader to include this asset
 // we need to define this outside of our class, otherwise

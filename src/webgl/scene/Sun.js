@@ -1,18 +1,17 @@
-import { gui, webgl, assets } from '../../context';
+import { gui, webgl, assets, workbench } from '../../context';
 
-module.exports = class Sun extends THREE.Object3D {
+const update = (instance, items) => {
+  instance.light.color.setStyle(items.color);
+};
+
+@workbench(update)
+export default class Sun extends THREE.Object3D {
+  settings = {
+    color: { value: 'rgb(255, 255, 255)', isColor: true },
+  }
 
   constructor () {
     super();
-
-    {
-      const geometry = new THREE.SphereGeometry(1, 8, 8);
-      const material = new THREE.MeshBasicMaterial({color: 0xfffffff});
-      const sphere = new THREE.Mesh(geometry, material);
-      sphere.visible = false;
-      sphere.position.set(-50, 40, 0);
-      this.add(sphere);
-    }
 
     {
       const light = new THREE.HemisphereLight( 0xffffff, 0xffffff, 0.6 );
@@ -31,20 +30,25 @@ module.exports = class Sun extends THREE.Object3D {
       light.shadow.mapSize.width = 2048;
       light.shadow.mapSize.height = 2048;
 
-      const d = 16;
-
-      light.shadow.camera.left = -d;
-      light.shadow.camera.right = d;
-      light.shadow.camera.top = d;
-      light.shadow.camera.bottom = -d;
-
       light.shadow.camera.far = 3500;
       light.shadow.bias = -0.0001;
       light.shadow.darkness = 0.35;
 
       this.add(light);
+      this.light = light;
 
       this.fog = new THREE.Fog(0x222233, 0, 20000);
     }
+
+    /*
+    if (gui) {
+      const folder = gui.addFolder(this.constructor.name);
+      const settings = {
+        color: this.light.color.getStyle(),
+      };
+      folder.addColor(settings, 'color').onChange(update);
+      folder.open();
+    }
+    */
   }
 }

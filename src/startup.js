@@ -1,11 +1,10 @@
-const Honeycomb = require('./webgl/scene/Honeycomb');
-const Camera = require('./webgl/scene/Camera');
-const Skybox = require('./webgl/scene/Skybox');
-const Sun = require('./webgl/scene/Sun');
-const Floor = require('./webgl/scene/Floor');
-const Sphere = require('./webgl/scene/Sphere');
-
-const { assets, webgl, gui } = require('./context');
+import Honeycomb from './webgl/scene/Honeycomb';
+import Camera from './webgl/scene/Camera';
+import Skybox from './webgl/scene/Skybox';
+import Sun from './webgl/scene/Sun';
+import Floor from './webgl/scene/Floor';
+import Sphere from './webgl/scene/Sphere';
+import { assets, webgl, gui } from './context';
 
 module.exports = function () {
   // Set background color

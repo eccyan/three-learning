@@ -1,7 +1,8 @@
-const WebGLApp = require('./webgl/WebGLApp');
-const AssetManager = require('./util/AssetManager');
-const query = require('./util/query');
-const dat = require('dat.gui');
+import WebGLApp from './webgl/WebGLApp';
+import AssetManager from './util/AssetManager';
+import query from './util/query';
+import dat from 'dat.gui';
+import workbench from './util/workbench.js';
 
 // Setup dat.gui
 const gui = new dat.GUI();
@@ -23,9 +24,10 @@ const assets = new AssetManager({
   renderer: webgl.renderer
 });
 
-module.exports = {
+export {
   assets,
   canvas,
   webgl,
-  gui
+  gui,
+  workbench,
 };
