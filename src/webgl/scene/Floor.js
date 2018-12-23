@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import SimplexNoise from 'simplex-noise';
 import { gui, webgl, assets } from '../../context';
 

@@ -27,6 +27,7 @@
     "seed-random": "^2.2.0",
     "simplex-noise": "^2.4.0",
     "three": "^0.99.0",
+    "three-gltf-loader": "^1.99.1",
     "touches": "^1.2.2",
     "xhr": "^2.5.0"
   },

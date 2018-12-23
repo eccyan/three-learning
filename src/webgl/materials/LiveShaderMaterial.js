@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 // We hook into needsUpdate so it will lazily check
 // shader updates every frame of rendering.
 

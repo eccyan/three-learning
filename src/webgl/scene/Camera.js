@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
 
 module.exports = class Camera extends THREE.Object3D {

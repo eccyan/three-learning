@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { gui, webgl, assets, workbench } from '../../context';
 
 const update = (instance, items) => {

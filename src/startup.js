@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import Honeycomb from './webgl/scene/Honeycomb';
 import Camera from './webgl/scene/Camera';
 import Skybox from './webgl/scene/Skybox';

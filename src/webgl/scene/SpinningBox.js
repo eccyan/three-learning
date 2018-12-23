@@ -1,3 +1,5 @@
+import * as THREE from 'three';
+
 module.exports = class SpinningBox extends THREE.Object3D {
   constructor () {
     super();

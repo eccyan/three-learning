@@ -1,3 +1,6 @@
+import * as THREE from 'three';
+import GLTFLoader from 'three-gltf-loader';
+
 const noop = () => {
 };
 
@@ -122,7 +125,7 @@ class AssetManager {
         }
       };
       if (isGLTF(ext)) {
-        const loader = new THREE.GLTFLoader();
+        const loader = new GLTFLoader();
         return loader.load(url, (data) => {
           // get out of Promise land from GLTFLoader
           process.nextTick(() => done(null, data));

@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
 
 module.exports = class Sphere extends THREE.Object3D {

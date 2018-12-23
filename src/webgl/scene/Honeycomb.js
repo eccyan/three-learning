@@ -1,5 +1,5 @@
+import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
-
 import LiveShaderMaterial from '../materials/LiveShaderMaterial';
 import honeyShader from '../shaders/honey.shader';
 

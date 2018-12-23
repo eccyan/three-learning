@@ -1,3 +1,4 @@
+import * as THREE from 'three';
 const { EventEmitter } = require('events');
 const assign = require('object-assign');
 const defined = require('defined');

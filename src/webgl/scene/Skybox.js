@@ -1,4 +1,6 @@
+import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
+import TGALoader from '../../util/TGALoader';
 
 const width = 100;
 const height = 100;
@@ -19,7 +21,7 @@ module.exports = class Skybox extends THREE.Object3D {
 
     const geometry = new THREE.BoxGeometry( width, height, depth);
 
-    const loader = new THREE.TGALoader();
+    const loader = new TGALoader();
     const materials = mapURLs.map((url) => {
       return new THREE.MeshBasicMaterial( { map: loader.load(url), side: THREE.BackSide } )
     });
