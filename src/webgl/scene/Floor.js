@@ -7,7 +7,7 @@ module.exports = class Floor extends THREE.Object3D {
   constructor () {
     super();
 
-    const geometry = new THREE.PlaneGeometry(100, 100, 32, 32);
+    const geometry = new THREE.PlaneGeometry(100, 100, 16, 16);
     const map = new THREE.TextureLoader().load("assets/images/sand.jpg");
     map.wrapS = map.wrapT = THREE.RepeatWrapping;
     map.repeat.set(16, 16);
@@ -19,8 +19,8 @@ module.exports = class Floor extends THREE.Object3D {
 
     const noise = new SimplexNoise();
     for (let i = 0; i < geometry.vertices.length; i++) {
-      var vertex = geometry.vertices[i];
-      vertex.z = noise.noise2D(vertex.x / 8, vertex.y / 8);
+      const vertex = geometry.vertices[i];
+      vertex.z = noise.noise2D(vertex.x / 8, vertex.y / 8) * 4;
     }
 
     floor.position.y = -5;
