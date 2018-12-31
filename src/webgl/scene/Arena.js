@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
-import Camera from './Camera';
+import Avator from './Avator';
 import Floor from './Floor';
 import Skybox from './Skybox';
 import Sun from './Sun';
@@ -15,6 +15,6 @@ export default class Arena extends THREE.Object3D {
     this.add(new Floor());
     this.add(new Skybox());
     this.add(new Sphere());
-    this.add(new Camera());
+    this.add(new Avator());
   }
 }
