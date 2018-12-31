@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import { gui, webgl, assets } from '../../context';
 import Camera from './Camera';
 import Floor from './Floor';
-import Skybox from './/Skybox';
+import Skybox from './Skybox';
 import Sun from './Sun';
 import Sphere from './Sphere';
 
