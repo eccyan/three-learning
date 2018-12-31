@@ -1,12 +1,10 @@
 import * as THREE from 'three';
+require('three-first-person-controls')(THREE);
 const { EventEmitter } = require('events');
 const assign = require('object-assign');
 const defined = require('defined');
 const rightNow = require('right-now');
-const createOrbitControls = require('orbit-controls');
 const createTouches = require('touches');
-
-const tmpTarget = new THREE.Vector3();
 
 module.exports = class WebGLApp extends EventEmitter {
 
@@ -46,17 +44,20 @@ module.exports = class WebGLApp extends EventEmitter {
     this.maxDeltaTime = defined(opt.maxDeltaTime, 1 / 30);
 
     // setup a basic camera
-    const fov = defined(opt.fov, 45);
-    const near = defined(opt.near, 0.01);
-    const far = defined(opt.far, 100);
+    const fov = defined(opt.fov, 75);
+    const near = defined(opt.near, 0.1);
+    const far = defined(opt.far, 2900);
     this.camera = new THREE.PerspectiveCamera(fov, 1, near, far);
 
-    // set up a simple orbit controller
-    this.controls = createOrbitControls(assign({
-      element: this.canvas,
-      parent: window,
-      distance: 4
-    }, opt));
+    const controls = new THREE.FirstPersonControls( this.camera );
+    controls.lookSpeed = 0.2;
+    controls.movementSpeed = 8.0;
+    controls.noFly = true;
+    controls.constrainVertical = true;
+    controls.verticalMin = 1.0;
+    controls.verticalMax = 2.0;
+
+    this.controls = controls;
 
     this.time = 0;
     this._running = false;
@@ -122,13 +123,7 @@ module.exports = class WebGLApp extends EventEmitter {
   }
 
   update (dt = 0, time = 0) {
-    this.controls.update();
-
-    // reposition to orbit controls
-    this.camera.up.fromArray(this.controls.up);
-    this.camera.position.fromArray(this.controls.position);
-    tmpTarget.fromArray(this.controls.target);
-    this.camera.lookAt(tmpTarget);
+    this.controls.update(dt);
 
     // recursively tell all child objects to update
     this.scene.traverse(obj => {
